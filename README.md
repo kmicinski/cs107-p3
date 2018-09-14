@@ -157,7 +157,7 @@ In this graph, you can see how we can divide the nodes in the graph
 into two categories. We can check whether or not a graph is bipartite
 by using a recursive strategy that I'm going to call the "frontier
 strategy." Here's how it works: in our algorithm, we're going to
-maintain two sets of nodes `A`, and `B``. To start the process, we
+maintain two sets of nodes `A`, and `B`. To start the process, we
 pick an arbitrary node. It can be any node, it doesn't matter
 which. For this graph, let's pick node `1`. Then, we throw that node
 in the set `A` (we could pick set `B`, the reasoning is symmetric):
