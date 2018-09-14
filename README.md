@@ -228,7 +228,9 @@ then we check to see whether the graphs contain any common
 elements. If they do, the graph is **not** bipartite. If they don't,
 the graph **is** bipartite. Proving this works for any graph is a bit
 tricky, so we won't do it here, but the reasoning is based on
-induction over the set of nodes in the graph.
+induction over the set of nodes in the graph and certain properties of
+the algorithm we've developed (built on the fact that it is a
+fixed-point iteration).
 
 To convince ourselves of how it works on a non-bipartite graph, let's
 run this process on the following graph:
