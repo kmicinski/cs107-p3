@@ -157,10 +157,11 @@ In this graph, you can see how we can divide the nodes in the graph
 into two categories. We can check whether or not a graph is bipartite
 by using a recursive strategy that I'm going to call the "frontier
 strategy." Here's how it works: in our algorithm, we're going to
-maintain two sets of nodes `A`, and `B`. To start the process, we
-pick an arbitrary node. It can be any node, it doesn't matter
-which. For this graph, let's pick node `1`. Then, we throw that node
-in the set `A` (we could pick set `B`, the reasoning is symmetric):
+maintain two sets of nodes `A`, and `B`. To start the process, we pick
+an arbitrary node. It can be any node, it doesn't matter which. For
+this graph, let's pick node `1`. Then, we put that node (and only that
+noce) in the set `A` (we could pick set `B`, the reasoning is
+symmetric), making `B` the empty set:
 
     A = ⎨ 1 ⎬, B = ∅
 
@@ -211,6 +212,14 @@ The trick here is that we were able to follow the following algorithm:
   - Check to see if `B` has changed
     - If it has, swap the sets `A` and `B` and perform this process again
     - If it has not we are done
+
+I call this the "frontier strategy" because we keep evolving a new
+"frontier" of nodes to look at until we have found nothing else. This
+algorithm belongs to a very general class of algorithms called
+[fixed-point](https://en.wikipedia.org/wiki/Fixed-point_iteration)
+algorithms. You don't have to understand fixed-point algorithms for
+this assignment, but it is a powerful problem-solving strategy that
+will crop up in subsequent courses you take.
 
 Now, previously I said that we could use this strategy to check
 whether or not a graph is bipartite. So how do we do that? The answer
