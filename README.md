@@ -75,7 +75,7 @@ You will write two functions: `isNeighbor` and `getNeighbors`:
 
 - (5 points) The function `getNeighbors(g,n)` will return a list
   representing the set of immediate neighbors for a given node. For a
-  given node `n₁`, this is the set of nodes `⎨ n₁ ∣ n₁ ∈ g ∧
+  given node `n₁`, this is the set of nodes `⎨ n₂ ∣ n₂ ∈ g ∧
   isNeighbor(g, n₁, n₂) == True⎬`. For example `getNeighbors(g1,1)`
   should return `[1,2]`.
 
