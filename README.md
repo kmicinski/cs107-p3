@@ -94,7 +94,7 @@ I am going to say that a coloring is "consistent" for a graph, `g`,
 when the coloring:
 
   - Includes *exactly one* coloring for each node in the graph
-  - Includes no edges not in the graph
+  - Includes no nodes not in the graph
 
 For example, for the above graph, a coloring including
 `[...,(1,"red"), (1,"blue")]` would not be consistent because the
