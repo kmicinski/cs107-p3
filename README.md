@@ -130,7 +130,8 @@ neighbors, and checking that none is the same as the color of
 
 - (5 points) Write a function, `isConsistent(g, coloring)`, that takes
   a graph `g`, and a coloring, and decides whether or not the coloring
-  is valid for the graph.
+  is consistent (includes exactly one color for each node in `g` and 
+  no colors for nodes not in `g`). 
 
 #### Task 5: `isValidColoring(g,coloring)`
 
