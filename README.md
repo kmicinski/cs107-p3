@@ -21,7 +21,13 @@ representation:
     Edge ≡ Node × Node
 
 In other words, a graph is a pair of a set of nodes and a set of
-edges. A node is just a number, and an edge is a pair of nodes.
+edges. A node is just a number, and an edge is a pair of nodes. The
+reason this is called the adjancy-list representation is that we
+represent edges as a list of pairs of nodes that are adjacent to one
+another in the graph. We'll observe other implementations later on,
+for example, we can also represent edges as matrices, which will speed
+up some operations on graphs by taking advantage of our computer's
+ability to quickly multiply matrices.
 
 ### Tuples in Python
 
