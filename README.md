@@ -279,7 +279,7 @@ every node is reachable by some path from every other node. There are
 also *unconnected* graphs, where some nodes are not reachable from
 others. Here's an example:
 
-<img src="unconnected.png" alt="Unconnected graph" style="width:300px;"/>
+<img src="unconnected.png" alt="Unconnected graph" width="300"/>
 
 You can see that the node `A` is not connected at all to `E`: there's
 no way you can start at `A` and follow a path to `E`.
