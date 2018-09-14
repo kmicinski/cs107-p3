@@ -6,11 +6,11 @@ consisting of nodes and edges. Here's a picture of a graph:
 
 ![A picture of a graph](./graph.png "A picture of a graph")
 
-Each of the little circles is a node (other people will sometimes call
-these *vertices*), and each one of the lines is an edges. Each node
-has a label (an integer ID, in this case), along with a
-*color*. Normal graphs (that you'll see most places) don't necessarily
-have colors, that's an addon for this project.
+Each of the little circles is a *node* (other people will sometimes
+call these *vertices*), and each one of the lines is an *edge*. Each
+node has a label (an integer ID, in this case), along with a
+*color*. Graphs don't have to have colors, but in this assignment
+we'll study several properties of graph colorings.
 
 Technically, the set of graphs can be thought in a few different
 ways. For this project, I'm going to use the adjacency-list
