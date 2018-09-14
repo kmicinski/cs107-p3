@@ -241,8 +241,7 @@ This graph can't be 2-colored. If we pick `1` to be red and `2, 3` to
 be blue, it doesn't work (edge from `2` to `3`).
 
 Let's see how our algorithm works on this graph. We can pick any node
-to start with, but let's pick the first one in the list just for
-clarity:
+to start with, so let's pick the first node in the list of nodes:
 
     A = ⎨ 1 ⎬, B = ∅
 
