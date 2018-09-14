@@ -97,8 +97,8 @@ when the coloring:
   - Includes no nodes not in the graph
 
 For example, for the above graph, a coloring including
-`[...,(1,"red"), (1,"blue")]` would not be consistent because the
-coloring included both red and blue colors for node 1.
+`[...,(1,"red"), (1,"blue")]` would not be consistent, as it includes
+both red and blue colors for node `1`.
 
 Colorings assign colors to each node in the graph. A coloring is
 "valid" if no two adjacent nodes have the same color. Back in 1852,
