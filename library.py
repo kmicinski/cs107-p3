@@ -38,3 +38,10 @@ def precondition(check):
 
 def postcondition(check):
     return condition(postCondition=check)
+
+# 
+# List Basics
+# 
+def isEmpty(lst): return lst == []
+def head(lst): return lst[0]
+def tail(lst): return lst[1:]
