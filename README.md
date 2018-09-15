@@ -161,7 +161,7 @@ strategy." Here's how it works: in our algorithm, we're going to
 maintain two sets of nodes `A`, and `B`. To start the process, we pick
 an arbitrary node. It can be any node, it doesn't matter which. For
 this graph, let's pick node `1`. Then, we put that node (and only that
-noce) in the set `A` (we could pick set `B`, the reasoning is
+one) in the set `A` (we could pick set `B`, the reasoning is
 symmetric), making `B` the empty set:
 
     A = ⎨ 1 ⎬, B = ∅
