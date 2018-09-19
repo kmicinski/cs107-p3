@@ -1,4 +1,12 @@
-# CS 107 Project 3 -- Graphs, Colors, and Paths
+# CS 107 Projects 3 and 4 -- Graphs, Colors, and Paths
+
+This document consists of two labs, Part 1 (Project 3) is demarcated
+from Part 2 (Project 4). The first is due Wednesday, September 26th,
+and the second is due October 3rd.
+
+# Project 3 
+
+**Due: September 26, 6PM**
 
 For this project, you will be implementing a variety of algorithms
 that deal with graph colorability. A graph is a data structure
@@ -28,6 +36,52 @@ another in the graph. We'll observe other implementations later on,
 for example, we can also represent edges as matrices, which will speed
 up some operations on graphs by taking advantage of our computer's
 ability to quickly multiply matrices.
+
+### Notes and Constraints
+
+You will largely be modifying and writing code in `graphs.py`. There
+is some library code in `library.py` that I encourage you to use. 
+
+You can run the set of tests for this assignment by performing the
+following:
+
+    python3 tests.py -v
+
+I am not using `doctest` here, though you can if you want. My tests
+are written using the `unittest` library for Python. You will need
+this library if you do not yet have it:
+
+    pip3 install unittest
+
+Running the above command should report 8 errors, since no functions
+are implemented. I have implemented a small `warmup` exercise to help
+acquaint you with the testing infrastructure. You will need to write
+some of your own tests for this assignment by extending `tests.py`. I
+have explicitly given you a subset of the full tests I will use to
+grade your assignment.
+
+For this assignment, you can only program in the pure functional style
+via recursion over the data. Specifically, you may not create and then
+change variables, and doing so will result in an immediate 0 on the
+corresponding part of the assignment. However, you *may* use a
+variable that you never change.
+
+For example, the following is okay:
+
+    x = complicated * expression + is / here
+    postcondition(x == 3)
+    return x
+
+But the following is not:
+
+    x = y * z
+    y = x + 1
+    x = y * 2
+
+Because `x` and `y`'s value change. This is the imperative
+style. We'll get there very soon, but doing so also loses our ability
+to reason inductively about functions. So for now, we're going to
+stick to the pure functional style.
 
 ### Tuples in Python
 
@@ -77,7 +131,11 @@ You will write two functions: `isNeighbor` and `getNeighbors`:
   representing the set of immediate neighbors for a given node. For a
   given node `n₁`, this is the set of nodes `⎨ n₂ ∣ n₂ ∈ g ∧
   isNeighbor(g, n₁, n₂) == True⎬`. For example `getNeighbors(g1,1)`
-  should return `[1,2]`.
+  should return `[1,2]`. Note that *in particular*, this function *may
+  not* return a list that contains a node more than once.
+   - You may find it helpful to use the included `contains` function
+     in `library.py`. Or, you could just use `x in lst` (which returns
+     True if `x` is in `lst`).
 
 ### Graph Coloring
 
@@ -132,7 +190,68 @@ neighbors, and checking that none is the same as the color of
   a graph `g`, and a coloring, and decides whether or not the coloring
   is valid for the graph.
 
-#### Task 5: `isValidColoring(g,coloring)`
+#### Task 5: `getColor`
+
+- (5 points) Write a function, `getColor(coloring, node)`, that takes
+  a coloring and a node and returns the color of the specified
+  node. This will be helpful for next week's project where we check
+  whether colorings are valid.
+
+## Grading and Rubric
+
+I have given you a basic set of tests, included in the testsuite
+`tests.py`. These are the "public" tests. I am specifically
+*witholding* a set of "private" tests: larger examples with edge cases
+not included in the public tests. The public tests I've given you are
+enough for you to get the high-level idea, but likely won't test as
+much behavior as my secret tests will. When we grade your assignment,
+we will give points for both the public and the secret tests.
+
+I will also be grading on *style* (5 points) using the following Rubric:
+
+- Extremely poor (1/5): No code comments, no preconditions specified,
+  uses constructs we haven't talked about in class (ask if in doubt,
+  but no loops or variable mutation), not extra tests.
+
+- Poor (2/5): Only minor comments, no thought into preconditions at
+  all. No (or almost no) extra tests or only superficially different
+  tests.
+
+- Fair (3/5): Occasional comments, precondition / postconditions with
+  at least a little thought, at least one good extra test.
+
+- Good (4/5): Most non-trivial functions have tests and pre/post
+  conditions.
+
+- Great (5/5): Essentially all non-trivial functions have throughful
+  comments, pre/post conditions that make sense and give the right
+  amount of detail, and all functions have extra tests.
+
+#### Rubric
+
+- Task 1 (5 points):
+    - Public tests: X/2
+    - Secret tests: X/3
+- Task 2 (5 points):
+    - Public tests: X/2
+    - Secret tests: X/3
+- Task 3 (5 points):
+    - Public tests: X/2
+    - Secret tests: X/3
+- Task 4 (5 points):
+    - Public tests: X/2
+    - Secret tests: X/3
+- Task 5 (5 points):
+    - Public tests: X/2
+    - Secret tests: X/3
+- Style: X/5
+- Total: X/30
+
+# Project 4: Checking Validity of Colorings and Graph Bipartiteness
+
+**Due: October 3rd, 6PM**
+
+#### Task 6: `isValidColoring(g,coloring)`
 
 - (10 points) Write a function, `isValidColoring(g,coloring)` that
   decides if coloring `coloring` is valid for graph `g`. Specifically,
@@ -319,14 +438,14 @@ which take two lists `lst1` and `lst2` (assuming they have the
 property that no element repeats itself) and perform unions and
 intersection on them.
 
-#### Task 6: `setEquals`
+#### Task 7: `setEquals`
 
 - (5 points) Implement `setEquals`, which compares two lists (regarded
   as sets) for equality. The trick here is that sets can be reordered
   in any way, for example, `setEquals([1, 2], [2, 1])` should return
   `True`.
 
-#### Task 7: `calculateNextSet`
+#### Task 8: `calculateNextSet`
 
 - (10 points) Implement the function `calculateNextSet(A,B)`. This
   function takes two inputs: a set `A` to explore, and a set `B`. The
@@ -350,60 +469,17 @@ If you did the individual parts right, this should just work!
 For extra credit, extend `calculateBipartite` to work with unconnected
 graphs. Be sure to write tests that demonstrate it really works.
 
-## Grading and Rubric
-
-I have given you a basic set of tests, included in the
-testsuite. These are the "public" tests. I am specifically witholding
-a set of "private" tests: larger examples with edge cases not included
-in the public tests. The public tests I've given you are enough for
-you to get the high-level idea, but likely won't test as much behavior
-as my secret tests will. When we grade your assignment, we will give
-points for both the public and the secret tests.
-
-I will also be grading on *style* (10 points) using the following Rubric:
-
-- Extremely poor (2/10): No code comments, no preconditions specified,
-  uses constructs we haven't talked about in class (ask if in doubt,
-  but no loops or variable mutation), not extra tests.
-
-- Poor (4/10): Only minor comments, no thought into preconditions at
-  all. No (or almost no) extra tests or only superficially different
-  tests.
-
-- Fair (6/10): Occasional comments, precondition / postconditions with
-  at least a little thought, at least one good extra test.
-
-- Good (8/10): Most non-trivial functions have tests and pre/post
-  conditions.
-
-- Great (10/10): Essentially all non-trivial functions have throughful
-  comments, pre/post conditions that make sense and give the right
-  amount of detail, and all functions have extra tests.
-
-#### Rubric
-
-- Task 1 (5 points):
-    - Public tests: X/2
-    - Secret tests: X/3
-- Task 2 (5 points):
-    - Public tests: X/2
-    - Secret tests: X/3
-- Task 3 (5 points):
-    - Public tests: X/2
-    - Secret tests: X/3
-- Task 4 (5 points):
-    - Public tests: X/2
-    - Secret tests: X/3
-- Task 5 (10 points):
+- Task 6 (10 points):
     - Public tests: X/4
     - Secret tests: X/6
-- Task 6 (5 points):
+- Task 7 (5 points):
     - Public tests: X/2
     - Secret tests: X/3
-- Task 7 (10 points):
+- Task 8 (10 points):
     - Public tests: X/4
     - Secret tests: X/6
 - Extra credit: X/+2
-- Style: X/10 (Follows style rubric above)
+- Style: X/5 (Follows style rubric above)
+- Total: X/30
 
 

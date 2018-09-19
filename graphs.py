@@ -5,7 +5,21 @@
 # EDIT THIS FILE
 # 
 
+# Please refer to `library.py`
 from library import *
+
+# -------------------------------------------------------------------
+# Warmup: Writing decorator pre / postconditions
+# -------------------------------------------------------------------
+
+def myLen(lst):
+    precondition(type(lst) == type([]))
+    if (lst == []):
+        precondition(0 == len(lst))
+        return 0
+    else:
+        postcondition(1 + myLen(lst[1:]) == len(lst))
+        return 1 + myLen(lst[1:])
 
 # -------------------------------------------------------------------
 # Basic Graph Operations
@@ -17,10 +31,10 @@ from library import *
 
 # Check whether two given nodes, n1 and n2, in g, are neighbors.
 def isNeighbor(g,n1,n2):
-    raise UnimplementedExecption
+    raise UnimplementedExeception
 
 def getNeighbors(g, n):
-    raise UnimplementedExecption
+    raise UnimplementedExeception
 
 # -------------------------------------------------------------------
 # Graph Color Checking
@@ -46,39 +60,29 @@ def looksLikeColoring(coloring):
 # Return the number of colors used for a given coloring
 # Add a precondition here if you think it's necessary
 def numColors(coloring):
-    raise UnimplementedExecption
+    raise UnimplementedExeception
 
 # Task 4
 # Check whether a given coloring is consistent for a graph, `g`
 # Add a precondition / postcondition here if you think it's necssary
 def isConsistent(g, coloring):
-    raise UnimplementedExecption
-
-# You may want to think about using the following helper function in
-# your implementation of `isValidColoring`
-
-# Helper function to walk through the list of colorings at each index
-# `i`. 
-# 
-# The idea here is that getColorHelper(coloring,n,i) looks at
-# coloring[i]. coloring[i] is a pair
-@precondition(lambda coloring, n, i: i < len(coloring) and looksLikeColoring(coloring))
-def getColorHelper(coloring, n, i):
-    if (coloring[i][0] == n):
-        return coloring[i][1]
-    else:
-        return getColorHelper(coloring, n, i+1)
-
-# Get the color of an individual node `n`
-@precondition(lambda coloring, n: len(coloring) >= 1 and looksLikeColoring(coloring))
-def getColor(coloring, n):
-    return getColorHelper(coloring, n, 0)
+    raise UnimplementedExeception
 
 # Task 5
+# Get the color of an individual node `n`
+# precondition(for all coloring, n: len(coloring) >= 1 and looksLikeColoring(coloring))
+def getColor(coloring, n):
+    raise UnimplementedExeception
+
+# -------------------------------------------------------------------
+# END OF P3 / BEGIN P4
+# -------------------------------------------------------------------
+
+# Task 6
 # Is a coloring `coloring` valid for a graph `g`
-@precondition(lambda g, coloring: isConsistent(g, coloring))
+# precondition(for all g, coloring: isConsistent(g, coloring))
 def isValidColoring(g, coloring):
-    return UnimplementedExecption
+    raise  UnimplementedExeception
 
 # Check whether `coloring` is a valid k-coloring of `g`
 def isValidKColoring(g, coloring, k):
@@ -97,14 +101,12 @@ def member(lst, e):
     return forall(lst, lambda x: x != e)
 
 # Check that `lst` has no duplicate elements
-@precondition(lambda lst: type(lst) == type([]))
+#precondition(for all lst: type(lst) == type([]))
 def noRepeats(lst): 
     if isEmpty(lst): return True
     else: return (not member(tail(lst), head(lst)) and noRepeats(tail(lst)))
 
 # Take the union of two lists, regarded as sets
-@precondition(lambda lst1, lst2: noRepeats(lst1) and noRepeats(lst2))
-@postcondition(lambda ret: forall(lst1, lambda x: member(ret, x)) and forall(lst2, lambda x: member(ret, x)))
 def setUnion(lst1, lst2):
     if (isEmpty(lst1)): return lst2
     elif (member(head(lst1), lst2)):
@@ -113,8 +115,6 @@ def setUnion(lst1, lst2):
         return [head(lst1)] + setUnion(tail(lst1), lst2)
 
 # Calculate the intersection of two sets, lst1 and lst2
-@precondition(lambda lst1, lst2: noRepeats(lst1) and noRepeats(lst2))
-@postcondition(lambda ret: forall(lst1, lambda x: member(ret, x)) and forall(lst2, lambda x: member(ret, x)))
 def setIntersection(lst1, lst2):
     if (isEmpty(lst1)): return lst2
     elif (member(head(lst1), lst2)):
@@ -122,17 +122,17 @@ def setIntersection(lst1, lst2):
     else:
         return setUnion(tail(lst1), lst2)
 
-# Task 6
+# Task 7
 # Calculate whether or not two sets, `lst1` and `lst2`, are equal or
 # not.
 def setEquals(lst1, lst2):
-    raise UnimplementedExecption
+    raise UnimplementedExeception
 
 # -------------------------------------------------------------------
 # Bipartite checking
 # -------------------------------------------------------------------
 
-# Task 7
+# Task 8
 #
 # Take one "step" of the frontier. This is explained in the readme,
 # but basically the idea here is to take all of the neighbors from
@@ -141,7 +141,7 @@ def setEquals(lst1, lst2):
 # I invite you to write a more precise precondition that states this
 # mathematically
 def calculateNextSet(g,A,B):
-    raise UnimplementedExecption
+    raise UnimplementedExeception
 
 # Using `calculateNextSet`, iterate the sets A and B until no more
 # exploration is possible: at each step of the way, find A's neighbors
