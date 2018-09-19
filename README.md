@@ -188,7 +188,8 @@ neighbors, and checking that none is the same as the color of
 
 - (5 points) Write a function, `isConsistent(g, coloring)`, that takes
   a graph `g`, and a coloring, and decides whether or not the coloring
-  is valid for the graph.
+  is consistent (includes exactly one color for each node in `g` and 
+  no colors for nodes not in `g`). 
 
 #### Task 5: `getColor`
 
@@ -279,7 +280,7 @@ strategy." Here's how it works: in our algorithm, we're going to
 maintain two sets of nodes `A`, and `B`. To start the process, we pick
 an arbitrary node. It can be any node, it doesn't matter which. For
 this graph, let's pick node `1`. Then, we put that node (and only that
-noce) in the set `A` (we could pick set `B`, the reasoning is
+one) in the set `A` (we could pick set `B`, the reasoning is
 symmetric), making `B` the empty set:
 
     A = ⎨ 1 ⎬, B = ∅
@@ -398,7 +399,7 @@ every node is reachable by some path from every other node. There are
 also *unconnected* graphs, where some nodes are not reachable from
 others. Here's an example:
 
-![Unconnected graph](./unconnected.png "Unconnected graph" = 300x)
+<img src="unconnected.png" alt="Unconnected graph" width="300"/>
 
 You can see that the node `A` is not connected at all to `E`: there's
 no way you can start at `A` and follow a path to `E`.
