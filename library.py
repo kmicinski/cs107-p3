@@ -25,12 +25,21 @@ def contains(lst, x): return x in lst
 
 # Helper function for forall
 def forallHelper(lst,f,i):
-    if (i >= len(lst)): return False
+    if (i >= len(lst)): return True
     else: return f(lst[i]) and forallHelper(lst,f,i+1)
 
 # Does f hold for every element of lst
 def forall(lst, f):
-    forallHelper(lst,f,0)
+    return forallHelper(lst,f,0)
+
+# Helper function for forall
+def existsHelper(lst,f,i):
+    if (i >= len(lst)): return False
+    else: return f(lst[i]) or existsHelper(lst,f,i+1)
+
+# Does f hold for every element of lst
+def exists(lst, f):
+    return existsHelper(lst,f,0)
 
 #
 # Decorator-based pre/postconditions

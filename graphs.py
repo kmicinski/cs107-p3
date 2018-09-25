@@ -47,7 +47,7 @@ def getNeighbors(g, n):
 # 
 
 def looksLikeColorAssignment(colorAsn):
-    return len(colorAsn) == 2 and type(colorAsn) == type(1) and type(colorAsn[2]) == type("")
+    return len(colorAsn) == 2 and type(colorAsn[0]) == type(1) and type(colorAsn[2]) == type("")
 
 def looksLikeColoring(coloring):
     forall(coloring, looksLikeColorAssignment)
@@ -98,7 +98,7 @@ def isValidKColoring(g, coloring, k):
 
 # Check whether `e` is a member of `lst`
 def member(lst, e): 
-    return forall(lst, lambda x: x != e)
+    return exists(lst, lambda x: x == e)
 
 # Check that `lst` has no duplicate elements
 #precondition(for all lst: type(lst) == type([]))
