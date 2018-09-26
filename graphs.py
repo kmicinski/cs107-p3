@@ -47,7 +47,7 @@ def getNeighbors(g, n):
 # 
 
 def looksLikeColorAssignment(colorAsn):
-    return len(colorAsn) == 2 and type(colorAsn[0]) == type(1) and type(colorAsn[2]) == type("")
+    return len(colorAsn) == 2 and type(colorAsn[0]) == type(1) and type(colorAsn[1]) == type("")
 
 def looksLikeColoring(coloring):
     forall(coloring, looksLikeColorAssignment)
