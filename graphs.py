@@ -116,7 +116,7 @@ def setUnion(lst1, lst2):
 
 # Calculate the intersection of two sets, lst1 and lst2
 def setIntersection(lst1, lst2):
-    if (isEmpty(lst1)): return lst2
+    if (isEmpty(lst1)): return []
     elif (member(lst2, head(lst1))):
         return [head(lst1)] + setIntersection(tail(lst1), lst2)
     else:
