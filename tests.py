@@ -47,6 +47,6 @@ class TestP3(unittest.TestCase):
         self.assertEqual(setEquals([2], [2]), True)
     
     def test_calculateNextSet(self):
-        return
+        self.assertEquals(setEquals(calculateNextSet(graph1, [1], []), [1,2]), True)
 
 unittest.main()

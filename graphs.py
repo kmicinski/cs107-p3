@@ -147,12 +147,12 @@ def calculateNextSet(g,A,B):
 # exploration is possible: at each step of the way, find A's neighbors
 # and add them to B (using `calculateNextSet`), and then swap B with A
 # to continue the exploration
-def iterateFrontier(A,B):
-    if (setEquals(calculateNextSet(A,B), B)):
+def iterateFrontier(g,A,B):
+    if (setEquals(calculateNextSet(g,A,B), B)):
         # Done, no work to be done
         return (A,B)
     else:
-        return iterateFrontier(calculateNextSet(A,B), A)
+        return iterateFrontier(g,calculateNextSet(g,A,B), A)
 
 # Pick an artbirary node in the graph to put in set `A`, and leave set
 # `B` empty
