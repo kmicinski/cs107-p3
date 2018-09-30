@@ -164,7 +164,7 @@ def start(graph):
 def calculateBipartite(graph):
     # Calculate the final sets A and B as a pair
     if(len(graph[0]) == 0): return True
-    answer = iterateFrontier(start(graph),[graph[0][0]],[])
+    answer = iterateFrontier(graph,[graph[0][0]],[])
     A = answer[0]
     B = answer[1]
     return isEmpty(setIntersection(A,B))
